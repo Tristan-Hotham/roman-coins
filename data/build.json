@@ -1,0 +1,21 @@
+{
+ "counties": 47,
+ "districts": 296,
+ "names_in_pas": 296,
+ "unmatched": 0,
+ "multi_county_names": 11,
+ "multi_county_records": 57,
+ "records": 1062032,
+ "records_county_total": 1062193,
+ "records_no_district": 161,
+ "coins": 275206,
+ "dated": 188831,
+ "dated_pc": 68.61441974375559,
+ "p22_24": 34,
+ "pas_nat_reece": 240339,
+ "pas_nat_reece_1_21": 239978,
+ "england_reece_1_21": 188843,
+ "max_list": 33,
+ "coin_rate": 259.1315515916658,
+ "zero_coin_districts": 22
+}

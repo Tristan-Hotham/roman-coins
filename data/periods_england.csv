@@ -1,0 +1,25 @@
+period,start,end,name,rulers,england_county_sum,england_district_sum,pas_national
+1,,41,Pre-Claudian and Iron Age,"Republic and Iron Age, to AD 41",2902,2902,3348
+2,41.0,54,Claudian,Claudius,778,778,1062
+3,54.0,68,Neronian,Nero,776,776,976
+4,69.0,96,Flavian,"Vespasian, Titus, Domitian",3885,3885,5297
+5,96.0,117,Trajanic,"Nerva, Trajan",3252,3252,4150
+6,117.0,138,Hadrianic,Hadrian,3289,3287,3874
+7,138.0,161,Antonine I,Antoninus Pius,5165,5164,5884
+8,161.0,180,Antonine II,Marcus Aurelius,3221,3220,3600
+9,180.0,193,Antonine III,Commodus,1352,1352,1493
+10,193.0,222,Severus to Elagabalus,Severus to Elagabalus,4755,4754,5558
+11,222.0,238,Later Severan,"Severus Alexander, Maximinus",1726,1726,1919
+12,238.0,260,Gordian III to Valerian,Gordian III to Valerian,2191,2191,3270
+13,260.0,275,Gallienus sole reign to Aurelian,"Gallienus, Gallic Empire, Claudius II, Aurelian",25190,25190,36083
+14,275.0,296,Tacitus to Allectus,"Probus, Carausius, Allectus",20181,20181,26468
+15,296.0,317,The Tetrarchy,The Tetrarchy,6649,6648,13483
+16,317.0,330,Constantinian I,Constantine I,13191,13191,18919
+17,330.0,348,Constantinian II,Constantine I and his sons,44961,44960,49385
+18,348.0,364,Constantinian III,"Constantius II, Magnentius, Julian",15853,15849,16492
+19,364.0,378,Valentinianic,Valentinian I and Valens,25409,25408,27350
+20,378.0,388,Theodosian I,"Gratian, Theodosius, Magnus Maximus",1165,1165,2420
+21,388.0,402,Theodosian II,"Theodosius I, Arcadius, Honorius",2952,2952,8947
+22,402.0,445,Fifth century I,Fifth century I,26,26,27
+23,445.0,498,Fifth century II,Fifth century II,7,7,333
+24,498.0,565,Anastasius to Justinian,Anastasius to Justinian,1,1,1

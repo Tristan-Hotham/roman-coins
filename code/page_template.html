@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lost money | Roman coins found in England, reign by reign</title>
+<meta name="description" content="{{build.coins|int}} Roman coin records from the Portable Antiquities Scheme, mapped by English district and by Reece's 21 coin periods, standardised by all finds recorded.">
+<meta property="og:title" content="Lost money: Roman coins found in England, reign by reign">
+<meta property="og:description" content="{{build.coins|int}} Roman coin records among {{build.records|int}} finds. Drag through the reigns and watch the map change.">
+<meta property="og:image" content="https://maps.tristanhotham.com/roman-coins/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/roman-coins/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+{{CSS}}
+</style></head>
+<body>
+<div class="topbar">
+  <a class="tb-name" href="#mapWrap">Lost money</a>
+  <span class="tb-k">Data study · 2026</span>
+  <nav class="tb-links"><a href="#essay">About</a><button class="theme" id="theme" aria-label="Toggle dark mode">◐</button><a href="https://doi.org/10.5281/zenodo.24115196">Paper</a><a class="x" href="{{REPO}}">Data and code</a></nav>
+</div>
+<div class="mapband">
+  <div class="pane" id="mapWrap" data-fullscreen-map role="application" aria-label="Map of English districts coloured by Roman coin records per 1,000 finds, with a slider through the Roman coin periods">
+    <div id="map"></div>
+    <div class="nojs" id="nojs">Loading the map. It needs JavaScript and WebGL.</div>
+    <div class="cartouche" id="cartouche">
+      <button class="ct-toggle" id="ctToggle" aria-expanded="true">Lost money ▾</button>
+      <button class="ct-fold" id="ctFold" title="Fold the title" aria-label="Fold the title">▴</button>
+      <div class="ct-body">
+        <div class="kicker"><b>Data study</b><span>2026</span></div>
+        <h1>Lost <span class="a">money</span></h1>
+        <p class="dek">Roman coins found in England and recorded with the Portable Antiquities Scheme, district by district: {{build.coins|int}} coin records among {{build.records|int}} finds of every period. Drag the slider or press Play to step through Reece's 21 coin periods, from before AD 41 to AD 402. Tap a district for its profile.</p>
+        <div class="byline">{{BYLINE}}</div>
+      </div>
+    </div>
+    <div class="ov-top">
+      <div class="srch"><input type="search" id="q" placeholder="Find a district or county" aria-label="Find a district or county" autocomplete="off"><ul class="sug" id="sug" role="listbox"></ul></div>
+      <div class="chips"><button class="chip" data-m="r" aria-pressed="true">Per 1,000 finds</button><button class="chip" data-m="e" aria-pressed="false">Against England</button><button class="chip lyr" id="lyrBtn" aria-expanded="false" aria-controls="lp">Layers</button></div>
+    </div>
+    <div class="lp" id="lp" role="dialog" aria-label="Map layers">
+      <h4>Layers</h4>
+      <label><input type="checkbox" id="lyD" checked> Districts (coloured)</label>
+      <label><input type="checkbox" id="lyF" checked> Too few finds to say (hatched)</label>
+      <label><input type="checkbox" id="lyO" checked> District outlines</label>
+      <label><input type="checkbox" id="lyC" checked> County outlines (dashed)</label>
+      <label><input type="checkbox" id="lyE" checked> Edge of the data: England</label>
+      <label><input type="checkbox" id="lyL" checked> Base map labels</label>
+    </div>
+    <div class="keys" id="keys"><b id="keyTitle">All Roman coins</b><div class="bar" id="keyBar"></div><div class="ends" id="keyEnds"><span>0</span><span></span><span></span></div>
+      <div class="row kx" style="color:#6E604E" id="keySub">Roman coin records per 1,000 PAS records</div><div class="row"><span style="display:inline-block;width:18px;height:11px;border:1px solid #B9AE96;background:repeating-linear-gradient(135deg,#fff 0 3px,#B9AE96 3px 4px)"></span><span id="keyNote">hatched: fewer than 100 records</span></div><div class="row kx" style="color:#6E604E">England only: 296 districts (2023). Wales is not in this data.</div></div>
+    <div class="tl" role="group" aria-label="Coin period"><button id="play" aria-pressed="false">Play</button><div class="tlt"><b id="tlLab">All periods</b><span id="tlSub">Roman coins of every date</span></div><input type="range" id="tl" min="0" max="21" step="1" value="0" aria-label="Reece period, 0 for all"></div>
+  </div>
+</div>
+<div class="wrap" id="essay">
+<p style="margin-top:6px">Every Roman coin found in an English field was lost, dropped, thrown away or hidden by somebody, and most of them were small change. Over the last quarter of a century, detectorists and others have shown hundreds of thousands of them to the Portable Antiquities Scheme, which records each one with the name of the emperor, the date and the district where it was found. I used those records to ask two old questions with new numbers: when were Roman coins lost in England, and did that rhythm differ from place to place?</p>
+<div class="byline">{{BYLINE}} · Data: Portable Antiquities Scheme (finds.org.uk), Reece periods from Nomisma.org, district boundaries from the Office for National Statistics (Open Government Licence v3.0) · Base map: OpenFreeMap Positron</div>
+<div class="stats">
+<div class="stat"><b>{{build.coins|int}}</b><span>Roman coin records in England, among {{build.records|int}} finds of every period</span></div>
+<div class="stat"><b>{{x.eng_rate|f0}}</b><span>Roman coins per 1,000 of all finds recorded</span></div>
+<div class="stat"><b>{{H1.p17_x_mean|f1}}x</b><span>the flat rate: coins lost each year in AD 330 to 348</span></div>
+<div class="stat"><b>{{nw.late_pc|f0}}%</b><span>of dated coins in the North East and North West are from after AD 364 (England: {{shares.late_eng|f0}}%)</span></div>
+</div>
+
+<h2><span class="n">01 · When</span>A coin curve with three peaks</h2>
+<p>Archaeologists split Roman coinage into 21 periods, devised by the numismatist Richard Reece, from the coins before AD 41 to the last issues that reached Britain around AD 402. Of the {{build.dated|int}} coin records in England that can be placed in one of them, only about one in six ({{shares.early_eng|pc}}) belongs to the first two centuries. If coins had been lost at an even pace, every year would hold {{H1.mean_py|f1}} of every 1,000. In AD 330 to 348, under Constantine and his sons, the rate is {{H1.top1_py|f1}}. The next highest are AD 364 to 378, under Valentinian and Valens ({{H1.top2_py|f1}}), and AD 260 to 275, the age of the Gallic emperors and their debased silver ({{H1.top3_py|f1}}). From AD 260 onwards come {{H1.after260_pc|f0}}% of all dated coins. This is the shape Reece described for British sites in 1995, now seen in finds from across the English countryside.</p>
+<div class="figure"><img src="img/profile.jpg" alt="Bar chart of coins lost per year in each Reece period: low and flat until AD 260, then peaks for AD 260 to 275, 330 to 348 and 364 to 378, and a sharp drop after 378" loading="lazy"><p class="src">Per 1,000 dated coins, divided by the years in each period.</p></div>
+<p>The dip after AD 378 is real too: AD 378 to 388 holds only {{H1.p20_pm|f0}} of every 1,000 dated coins, less than a twentieth of the Constantinian peak per year. It suggests that little new small change reached Britain in those years.</p>
+
+<h2><span class="n">02 · Where</span>Not a slope, a step</h2>
+<p>Many books describe late Roman Britain as a country of two halves: a rich, coin-using south and east, and a north and west where the army sat and coin use thinned out sooner. Before computing anything by district, I wrote down a test of that idea: the share of late coins (AD 364 to 402) should rise steadily towards the east and fall towards the north, and the share of early coins (before AD 222) should do the opposite.</p>
+<p>The smooth version of that idea fails. Across {{sample.d20|int}} districts with at least 20 dated coins, the late share barely moves with distance east (an odds ratio of {{H2.main.east.or|f2}} per 100 km, 95% interval {{H2.main.east.lo|f2}} to {{H2.main.east.hi|f2}}) or north ({{H2.main.north.or|f2}}, {{H2.main.north.lo|f2}} to {{H2.main.north.hi|f2}}). The early share is no clearer. All but one of the {{robust_n.H2|int}} planned checks on the late share agree; the exception counts only coins after AD 378, which lean slightly east.</p>
+<div class="figure"><img src="img/robust.jpg" alt="Forest plot: the odds ratios for the late and early shares per 100 km east and north sit near 1 under every check, with intervals crossing 1 in nearly every case" loading="lazy"><p class="src">The planned tests and their checks. A value of 1 means no gradient.</p></div>
+<p>What the map shows instead is a step. In the North East and the North West, only {{nw.late_pc|f1}}% of dated coins are late, against {{nw.rest_late_pc|f1}}% in the rest of England, and {{nw.early_pc|f0}}% are early, against {{nw.rest_early_pc|f0}}%. The South West, the furthest west of all, has the highest late share of any region ({{x.sw_late|f1}}%). This step was not my planned test, so I treat it as a description, not a finding I set out to prove. It fits the older idea of a military north better than a simple tilt from east to west.</p>
+<div class="figure"><img src="img/regions.jpg" alt="Two bar charts by region: early coins make up 54 to 61 per cent of dated coins in the North East and North West against 11 to 27 per cent elsewhere; late coins make up 4 per cent there against 10 to 17 per cent elsewhere" loading="lazy"><p class="src">English regions. Dashed lines: England as a whole.</p></div>
+
+<h2><span class="n">03 · Reign by reign</span>Each period has its own map</h2>
+<p>Use the slider on the map to step through the periods. The Flavian and Severan coins crowd into the north and the Pennines, where the army was. The coins of AD 275 to 296, the years of Probus and of Carausius and Allectus, the breakaway emperors of Britain, lean east. The very last coins, of Theodosius, Arcadius and Honorius, gather in a band from the Thames valley to the Wash and are scarce in the north west.</p>
+<div class="figure"><img src="img/periods.jpg" alt="Six small maps of England: Flavian and Severan coins over-represented in the north, later periods over-represented in the south and east, the last period strongest from the Thames to the Wash" loading="lazy"><p class="src">Each district's share of dated coins from the period, against England's share.</p></div>
+<p>The same pattern turns up when I let every period have its own gradient: the odds that a dated coin is from AD 193 to 222 rise by a factor of {{by_period.P10.north_or|f2}} per 100 km further north, and the odds for AD 275 to 296 by {{by_period.P14.east_or|f2}} per 100 km further east. These are exploratory, added after the planned tests.</p>
+<div class="figure"><img src="img/gradients.jpg" alt="Chart of odds ratios by period: periods 10 and 11 lean north, period 14 and period 21 lean east, most others close to 1" loading="lazy"><p class="src">Exploratory: north and east gradients for each of Reece's 21 periods.</p></div>
+
+<h2><span class="n">04 · Among everything else</span>Roman coins as a share of all finds</h2>
+<p>Raw counts mostly show where people go detecting and where they report what they find. So the map's first view divides the Roman coins in each district by every record of any period found there. In England, {{x.eng_rate|f0}} of every 1,000 records are Roman coins. In the South West region it is {{x.sw_rate|f0}}; in London {{x.lon_rate|f0}}; in the North West {{x.nwr_rate|f0}}. Among districts with at least 500 records, the highest share is in {{top_rate.0.district|raw}} ({{top_rate.0.rate|f0}} per 1,000).</p>
+<div class="figure"><img src="img/map.jpg" alt="Map of England's districts shaded by Roman coins per 1,000 finds: darkest across the south Midlands, the Cotswolds and Wiltshire, East Anglia and East Yorkshire; palest in the north west and the Pennines" loading="lazy"><p class="src">Roman coins per 1,000 records of any kind.</p></div>
+<p>Constantine I is the commonest named ruler in {{rulers.county_top_counts.0.1|int}} of the 47 English counties. The exceptions are mostly in the north and west: Trajan in Cumbria, Cheshire, Shropshire and Lancashire, Severus Alexander in Durham, Antoninus Pius in Northumberland, Hadrian in Cornwall and Derbyshire. Constantius II leads in West Yorkshire, and in Staffordshire and Greater Manchester coins of the Roman Republic outnumber those of any single emperor.</p>
+<div class="figure"><img src="img/rulers.jpg" alt="Bar chart of the twelve commonest ruler entries on PAS Roman coin records: House of Constantine first, then Constantine I, House of Valentinian, uncertain fourth century coins and local copies of radiates" loading="lazy"><p class="src">National ruler entries on the PAS database.</p></div>
+
+<h2><span class="n">05 · How I did this</span>Records, districts and periods</h2>
+<p><b>The finds.</b> The counts come from the Portable Antiquities Scheme's public search, retrieved in 2026: all records by district, Roman coin records by district and by Reece period, and the top rulers by county. Findspots are public only to district level, so the district is the smallest unit here. Counts are records, not coins: a record can hold more than one coin, and some hoards are recorded coin by coin.</p>
+<p><b>The places.</b> All 296 district names in the data match the Office for National Statistics' 2023 local authority districts exactly. The data cover England only. Welsh finds are recorded under a different county field and were not in the download.</p>
+<p><b>The tests.</b> I wrote the analysis plan before computing any district shares, and kept to it. The national profile was visible in the first look at the data, so I treat it as a replication. Models are binomial regressions of each district's share on its easting and northing, with uncertainty that allows for districts in the same county being alike.</p>
+<p><b>What this cannot say.</b> The scheme records what people choose to show it. Ploughed land is detected more than pasture, some areas have more detectorists or more recording staff, and late Roman coins are small and easy to miss. Dividing by all finds removes some of that, not all. These are patterns in the record, not proof of how many coins were lost.</p>
+<details><summary>Sources and licences</summary>
+<ul class="plain">
+<li>Portable Antiquities Scheme database, finds.org.uk, British Museum and Amgueddfa Cymru, public search API, facet counts retrieved 2026. With thanks to the finders and the Finds Liaison Officers who recorded these finds. Counts only are republished here.</li>
+<li>Reece period dates: Nomisma.org concepts reece1 to reece24 (matching the PAS Reece period list), CC BY.</li>
+<li>Boundaries: Office for National Statistics, Local Authority Districts (December 2023) Boundaries UK BSC, and English regions and ceremonial counties; contains OS data © Crown copyright and database right; Open Government Licence v3.0.</li>
+<li>Base map: OpenFreeMap Positron style (OpenStreetMap, ODbL). MapLibre GL JS 4.7.1 (BSD 3-Clause).</li>
+<li>Text, figures and derived data CC BY 4.0; code MIT.</li>
+</ul></details>
+<div class="cta"><a class="p" href="https://doi.org/10.5281/zenodo.24115196">Read the paper</a><a href="{{REPO}}">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/roman-coins/">Blog post</a></div>
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) Lost money: Roman coin loss across England by district and Reece period, from the Portable Antiquities Scheme. Zenodo. <a href="https://doi.org/10.5281/zenodo.24115196">10.5281/zenodo.24115196</a></p>
+<p>Code: <a href="{{REPO}}">github.com/Tristan-Hotham/roman-coins</a> (MIT). Text, figures and data CC BY 4.0.</p>
+<p>{{AI}}</p>
+</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="js/page.js?v={{VERSION}}"></script>
+{{FULLSCREEN}}
+<script src="https://maps.tristanhotham.com/assets/site-nav.js" defer></script>
+</body>
+</html>
