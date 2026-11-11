@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this data or code, please cite it as below."
+title: "Lost Money: Roman Coin Loss across England by District and Reece Period, from the Portable Antiquities Scheme"
+type: dataset
+authors:
+  - family-names: Hotham
+    given-names: Tristan
+    orcid: "https://orcid.org/0000-0003-4931-9349"
+    affiliation: "Independent researcher"
+doi: "10.5281/zenodo.24115196"
+url: "https://maps.tristanhotham.com/roman-coins/"
+repository-code: "https://github.com/Tristan-Hotham/roman-coins"
+license: CC-BY-4.0
+keywords:
+  - "Roman Britain"
+  - "Roman coins"
+  - "site finds"
+  - "Reece periods"
+  - "Portable Antiquities Scheme"
+  - "metal detecting"
+  - "regional variation"
+  - "England"
